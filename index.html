@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
 
-    <title>Teste</title>
-</head>
-<body>
-    <h2>verificando consumo api</h2>
-</body>
-<script>
-    $.get("http://localhost:8000/hello-world?info=bernardo", function(data){
-        console.log(data);
-    })
-</script>
+
+        <title>API Request</title>
+    </head>
+    <body>
+        <h2>verificando consumo api</h2>
+
+        <div id="show-values">
+            <strong>Desenvolvedor:</strong> <span id="developer"></span> <br>
+            <strong>Versão:</strong> <span id="version"></span> <br>
+            <strong>Valor da Variável:</strong> <span id="value-of-variable"></span> <br>
+            <strong>Site da Empresa:</strong> <span id="company-site"></span>            
+        </div>
+
+        <footer>
+
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            $.ajax({
+                type: 'get',
+                url: "http://localhost:8000/hello-world?info=Odnumalo"
+            }).done(function(data) { 
+                document.getElementById('developer').innerHTML = data.manager_developer
+                document.getElementById('version').innerHTML = data.version
+                document.getElementById('value-of-variable').innerHTML = data.value_of_variable
+                document.getElementById('company-site').innerHTML = data.website_company
+            });    
+        </script>
+    </body>    
 </html>
