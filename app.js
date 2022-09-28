@@ -6,8 +6,7 @@ function requestOfServer() {
         type: 'get',
         url: "http://localhost:8000/hello-world?info=OlaMundo"
     }).done(function(data) { 
-        document.getElementById('developer').innerHTML = 
-data.name
+        document.getElementById('developer').innerHTML = data.name
 
         document.getElementById('version').innerHTML = data.version
         document.getElementById('value-of-variable').innerHTML = data.value_of_variable_info
@@ -21,6 +20,7 @@ data.name
 function submitDataOfUser() {
     const nameOfUser = $("#name").val()
     const lasNameOfUser = $("#lastname").val()
+    console.log(lasNameOfUser)
     const ageOfUser = $("#age").val()      
     $.ajax({
         "url": "http://localhost:8000/insert-data",
@@ -35,7 +35,6 @@ function submitDataOfUser() {
             age:ageOfUser
         }) 
     }).done(function(response) {
-        
         if (response.success) {
             $("#success-record-msg").css('display', 'block')
             $("#name").val('')
