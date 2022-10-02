@@ -7,13 +7,11 @@ function requestOfServer() {
         url: "http://localhost:8000/hello-world?info=OlaMundo"
     }).done(function(data) { 
         document.getElementById('developer').innerHTML = data.name
-
         document.getElementById('version').innerHTML = data.version
         document.getElementById('value-of-variable').innerHTML = data.value_of_variable_info
         document.getElementById('company-site').innerHTML = data.web_site_company
 
         $("#show-values").css('display', 'block')
-
     });
 }
 
@@ -27,8 +25,7 @@ function submitDataOfUser() {
         "method": "POST",
         "timeout": 0,
         "headers": {
-          "Content-Type":"application/json; charset=UTF-8",
-          "Access-Control-Allow-Origin":"*"
+          "Content-Type":"application/json; charset=UTF-8"          
         },
         "data": JSON.stringify({
             name:nameOfUser,
@@ -64,7 +61,7 @@ function submitCar(){
         "method": "POST",
         "timeout": 0,
         "headers": {
-          "Content-Type": "application/json; charset=UTF-8"
+          "Content-Type": "application/json; charset=UTF-8"          
         },
         "data": JSON.stringify({
             name:carName,
@@ -73,7 +70,9 @@ function submitCar(){
             motorization:carMotor
         }) 
     }).done(function(response) {
+        console.log("ae 1")
         if (response.success) {
+            console.log("ae 2")
             $("#success-record-msg").css('display', 'block')
             $("#name").val('')
             $("#model").val('')
