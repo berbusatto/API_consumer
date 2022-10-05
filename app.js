@@ -33,6 +33,7 @@ function submitDataOfUser() {
             age:ageOfUser
         }) 
     }).done(function(response) {
+        
         if (response.success) {
             $("#success-record-msg").css('display', 'block')
             $("#name").val('')
@@ -68,16 +69,42 @@ function submitCar(){
             car_model:carModel,
             year:carYear,
             motorization:carMotor
-        }) 
-    }).done(function(response) {
-        console.log("ae 1")
+        })   
+    }).done(function(response) {        
         if (response.success) {
-            console.log("ae 2")
             $("#success-record-msg").css('display', 'block')
             $("#name").val('')
             $("#model").val('')
             $("#year").val('')
             $("#motorization").val('')
-        }
+        } else {
+            let errorMsg;
+            let errorWidth = '350px'
+            if(response.missingAtribute === 'name'){
+                errorMsg = 'O modelo do carro está faltando';
+                let errorWidth = '415px'
+            }
+            if(response.missingAtribute === 'car_model'){
+                errorMsg = 'A marca do carro está faltando';
+                let errorWidth = '435px'
+            }
+            if(response.missingAtribute === 'year'){
+                errorMsg = 'O ano do carro está faltando';
+                let errorWidth = '415px'
+            }
+            if(response.missingAtribute === 'motorization'){
+                errorMsg = 'A motozização do carro está faltando';
+                let errorWidth = '415px'
+            }
+            $("#error-record-msg").css('display', 'block')
+            $("#content-error-record-msg").html(errorMsg)
+            $("#error-record-msg").css
+            }
     });  
+}
+
+
+function closeErrorMsg(){
+    // COM JQUERY
+    $('#error-record-msg').css('display', 'none')
 }
