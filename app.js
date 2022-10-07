@@ -73,13 +73,16 @@ function submitCar(){
     }).done(function(response) {        
         if (response.success) {
             $("#success-record-msg").css('display', 'block')
+            $("#error-record-msg").css('display', 'none')
             $("#name").val('')
-            $("#model").val('')
+            $("#car_model").val('')
             $("#year").val('')
             $("#motorization").val('')
         } else {
             let errorMsg;
             let errorWidth = '350px'
+            $("#success-record-msg").css('display', 'none')
+
             if(response.missingAtribute === 'name'){
                 errorMsg = 'O modelo do carro está faltando';
                 let errorWidth = '415px'
@@ -102,7 +105,6 @@ function submitCar(){
             }
     });  
 }
-
 
 function closeErrorMsg(){
     // COM JQUERY
