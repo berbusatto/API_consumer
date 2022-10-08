@@ -3,7 +3,9 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #2e3c42;
+    color: #fff;
 }
 
 header {
@@ -16,13 +18,13 @@ form {
     width: 500px; 
     text-align: center; 
     margin-top: 30px; 
-    border: 1px solid;
+    border: 2px solid;
     border-radius: 15px;
     padding-top: 15px;
 }
 
 main {
-    height: 600px;
+    height: 450px;
 }
 body > main > article {
     text-align: center;
@@ -30,14 +32,20 @@ body > main > article {
 
 footer {
     color: #fff;
-    background-color: #000;
-    height: 350px;
+    background-color: #414446;
+    height: 60px;
     text-align: center;
+    position: fixed;
+    bottom:0;
+    left:0;
+    right: 0;
+
+    
 }
 
 footer > span {
     position: relative;
-    top: 30px;
+    top: 20px;
     font-weight: 700;
 }
 
@@ -48,7 +56,7 @@ footer > span {
     margin-left: auto;
     margin-right: auto;
     border-radius: 15px;
-    color:#5f925f;
+    color:#79bb79;
     background-color: #dcecdc;
 } 
 
@@ -73,7 +81,7 @@ footer > span {
     margin-left: auto;
     margin-right: auto;
     border-radius: 15px;
-    color:#bb5f5f;
+    color:#c96565;
     background-color: #efd9ce;
 } 
 
@@ -91,3 +99,47 @@ footer > span {
 #error-record-msg {
     display: none;
 }
+
+#carLogo{
+    display: flex;    
+    justify-content: center;   
+    position: fixed;
+    bottom:0;
+    left:0;
+    right: 0;
+
+}
+
+#send-button{
+    background-color: #2e3c42;
+    border: none;
+    color: #ffffff;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;    
+    border-radius: 12px;
+    padding: 10px 24px;
+    font-size: 14px;
+    transition-duration: 0.1s;
+    font-weight: 700;
+}
+
+#send-button:hover {
+    background-color: #ffffff; 
+    color: #2e3c42;
+    font-weight: 700;
+}
+
+input {
+    background-color: #414446;
+    border: #ffffff;
+    color: #ffffff;
+    font-size: 16px;
+    margin-top: 5px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+

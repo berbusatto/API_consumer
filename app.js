@@ -81,6 +81,7 @@ function submitCar(){
         } else {
             let errorMsg;
             let errorWidth = '350px'
+
             $("#success-record-msg").css('display', 'none')
 
             if(response.missingAtribute === 'name'){
@@ -99,14 +100,14 @@ function submitCar(){
                 errorMsg = 'A motozização do carro está faltando';
                 let errorWidth = '415px'
             }
+
             $("#error-record-msg").css('display', 'block')
             $("#content-error-record-msg").html(errorMsg)
             $("#error-record-msg").css
-            }
+        }
     });  
 }
 
 function closeErrorMsg(){
-    // COM JQUERY
     $('#error-record-msg').css('display', 'none')
 }
